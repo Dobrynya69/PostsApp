@@ -1,0 +1,23 @@
+services:
+  db:
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
+  web:
+    build: .
+    command: gunicorn project.wsgi -b 0.0.0.0:8000 
+    environment:
+      - DEBUG=1
+      - EMAIL_HOST_USER=djangoemailsends@gmail.com
+      - EMAIL_HOST_PASSWORD=qreppppnvrttqrym
+      - ENVIRONMENT=development
+    volumes:
+      - .:/code
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+volumes:
+  postgres_data:
