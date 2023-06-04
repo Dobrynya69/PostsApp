@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+        <title>{{title}}</title>
+    {% endblock title %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block links %}{% endblock links %}
+</head>
+<body>
+    <div class="bg__img">
+        <img src="{% static 'img/home_page_bg.jpg' %}" alt="bg">
+    </div>
+    <header class="header">
+        <div class="header__content limiter">
+            <div class="header__row">
+                <a href="{% url 'home_page' %}" class="header__logo">PostApp</a>
+                <div class="header__buttons-block">
+                    {% if user.is_authenticated %}
+                        <a class="log-out" href="{% url 'account_logout' %}">LogOut</a>
+                        <div class="stick">|</div>
+                        <a class="create-post" href="#">Create post</a>
+                    {% else %}
+                        <a href="{% url 'account_signup' %}" class="sign-up">SignUp</a>
+                        <div class="stick">|</div>
+                        <a href="{% url 'account_login' %}" class="sign-in">LogIn</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="main__content limiter">
+            {% block content %}{% endblock content %}
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer__content limiter">
+            <div class="footer__row">
+                <div class="footer__author">@roman</div>
+                <div class="footer__contacts">
+                    <div class="contacts__phone">tel: +48 666 666 666</div>
+                    <div class="contacts__email">emai: yareskoempire69@email.com</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    {% block scripts %}{% endblock scripts %}
+</body>
+</html>

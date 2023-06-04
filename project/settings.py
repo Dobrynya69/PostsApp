@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-vu*g*e36lqnnm$5%270(=9fj#^6&ljm3lyy)!2^qd7*lcps+x_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = int(os.environ.get('DEBUG', default=0))
+DEBUG = int(os.environ.get('DEBUG', default=1))
 ENVIRONMENT = os.environ.get('ENVIRONMENT', default='none')
 
 ALLOWED_HOSTS = ['*']
@@ -149,6 +149,13 @@ AUTHENTICATION_BACKEND = {
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 }
+
+LOGIN_REDIRECT_URL = 'home_page'
+ACCOUNT_LOGOUT_REDIRECT = 'home_page'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_FORMS = {'signup': 'users.forms.CustomUserCreationForm', 'login': 'users.forms.CustomUserLoginForm'}
+
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'

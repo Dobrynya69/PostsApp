@@ -1,0 +1,27 @@
+.form__content{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.form__content input{
+    margin-bottom: 5px;
+    font-size: 24px;
+    padding: 5px;
+    outline: none;
+    border-radius: 7px;
+}
+.form__content label{
+    font-size: 24px;
+    color: #fff;
+}
+.sign__btn {
+    font-size: 24px;
+    margin-top: 30px;
+    padding: 10px 50px;
+    border-style: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
