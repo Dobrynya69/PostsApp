@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@100;400;700&display=swap');
 *{
     padding: 0;
     margin: 0;
     border: 0;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: Geologica
 }
 a{
     text-decoration: none;
@@ -67,36 +68,26 @@ a{
     height: calc(100vh - 75px - 40px);
 }
 .main__content{
-    background-color: #131212;
-    opacity: 0.9;
-    height: 100%;
+    background-color: #131212f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
 }
 .footer{
     height: 40px;
     background-color: #292929;
 }
-.footer__content {
-    height: 100%;
-}
-.footer__row {
-    height: 100%;
-    color: #fff;
-    font-size: 14px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px 20px;
-}
-.footer__author {
-    cursor: default;
-}
-.contacts__phone {
-    cursor: default;
-}
-.contacts__email {
-    cursor: default;
-}
 .header__buttons-block {
     font-size: 18px;
     display: flex;
+    align-items: center;
+}
+.user_logo{
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    border-radius: 50%;
+    border: 5px solid white;
 }

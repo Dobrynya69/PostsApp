@@ -100,3 +100,8 @@ a{
     font-size: 18px;
     display: flex;
 }
+.user_logo{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}

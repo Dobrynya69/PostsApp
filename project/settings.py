@@ -39,10 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'allauth.socialaccount.providers.github',
+
 
     'users.apps.UsersConfig',
     'posts.apps.PostsConfig',
@@ -155,7 +158,7 @@ ACCOUNT_LOGOUT_REDIRECT = 'home_page'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_FORMS = {'signup': 'users.forms.CustomUserCreationForm', 'login': 'users.forms.CustomUserLoginForm'}
-
+SITE_ID = 1
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'

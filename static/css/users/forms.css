@@ -5,23 +5,41 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: white;
 }
 .form__content input{
     margin-bottom: 5px;
-    font-size: 24px;
+    font-size: 20px;
     padding: 5px;
     outline: none;
-    border-radius: 7px;
+    border-radius: 5px;
+    width: 250px;
+    color: black;
 }
-.form__content label{
-    font-size: 24px;
-    color: #fff;
+.form__content input[type="file"]{
+    background-color: white;
+    border-radius: 5px;
 }
-.sign__btn {
-    font-size: 24px;
+.form__content input.sign__btn {
+    font-size: 20px;
     margin-top: 30px;
-    padding: 10px 50px;
+    text-align: center;
+    padding: 5px;
     border-style: none;
-    border-radius: 7px;
+    border-radius: 5px;
+    min-width: 260px;
     cursor: pointer;
+}
+.github_button{
+    background-color: #1c1a1a;
+    padding: 5px;
+    color: white;
+    border: 1px solid white;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 5px;
+    min-width: 250px;
+}
+h2{
+    color: white;
 }

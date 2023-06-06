@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block title %}
-    <title>LogIn</title>
+    <title>GitHub LogIn</title>
 {% endblock title %}
 
 {% block links %}
@@ -11,10 +11,9 @@
 {% endblock links %}
 
 {% block content %}
-    <form method="POST" action="{% url 'account_login' %}" class="form__content">
+    <form method="POST" action="" class="form__content">
         {% csrf_token %}
-        {{form}}
-        <input type="submit" value="LogIn" class="sign__btn"/>
+        <h2>Are you want to logIn with in GitHub?</h2>
+        <input type="submit" value="Confirm" class="sign__btn"/>
     </form>
-    <a href="/account/github/login/" class="github_button">Login with GitHub</a>
 {% endblock content %}

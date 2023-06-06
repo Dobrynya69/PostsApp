@@ -23,11 +23,22 @@
                         <a class="log-out" href="{% url 'account_logout' %}">LogOut</a>
                         <div class="stick">|</div>
                         <a class="create-post" href="#">Create post</a>
+                        <div class="stick">|</div>
+                        {% if user.image %}
+                            <a href="{% url 'user_profile' pk=user.pk %}">
+                                <img src="{{user.image.url}}" alt="user_logo" class="user_logo"/>
+                            </a>
+                        {% else %}
+                            <a href="{% url 'user_profile' pk=user.pk %}">
+                                <img src="{% static 'img/logo.png' %}" alt="user_logo" class="user_logo"/>
+                            </a>
+                        {% endif %}                      
                     {% else %}
                         <a href="{% url 'account_signup' %}" class="sign-up">SignUp</a>
                         <div class="stick">|</div>
                         <a href="{% url 'account_login' %}" class="sign-in">LogIn</a>
                     {% endif %}
+                    
                 </div>
             </div>
         </div>
@@ -37,17 +48,7 @@
             {% block content %}{% endblock content %}
         </div>
     </main>
-    <footer class="footer">
-        <div class="footer__content limiter">
-            <div class="footer__row">
-                <div class="footer__author">@roman</div>
-                <div class="footer__contacts">
-                    <div class="contacts__phone">tel: +48 666 666 666</div>
-                    <div class="contacts__email">emai: yareskoempire69@email.com</div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <footer class="footer"></footer>
     {% block scripts %}{% endblock scripts %}
 </body>
 </html>
