@@ -6,6 +6,7 @@ from .models import *
 from .forms import *
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
+
 class HomePageView(TemplateView):
     template_name = 'users/home_page.html'
     extra_context = {'title': 'Home Page'}
@@ -21,7 +22,8 @@ class UserProfilePageView(LoginRequiredMixin, UserPassesTestMixin, View):
             context={
                 'title': 'User profile',
                 'form': CustomUserForm(instance=self.model.objects.get(pk=self.kwargs['pk']))
-            })
+            },
+            status=200)
     
 
     def post(self, request, *args, **kwargs):
@@ -30,13 +32,14 @@ class UserProfilePageView(LoginRequiredMixin, UserPassesTestMixin, View):
             form.save()
             return redirect(reverse('home_page'))
         else:
-            render(
+            return render(
                 request=request,
                 template_name="users/user_profile.html", 
                 context={
                     'title': 'User profile',
                     'form': form
-                })
+                },
+                status=200)
 
 
     def test_func(self, *args, **kwargs):

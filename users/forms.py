@@ -16,7 +16,8 @@ class CustomUserCreationForm(SignupForm):
 
     def save(self, request):
         user = super(CustomUserCreationForm, self).save(request)
-        user.image = request.FILES["image"]
+        if request.FILES:
+            user.image = request.FILES['image']
         user.first_name = request.POST.get('first_name', '')
         user.last_name = request.POST.get('last_name', '')
         user.save()
