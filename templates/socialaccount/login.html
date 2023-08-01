@@ -11,7 +11,7 @@
 {% endblock links %}
 
 {% block content %}
-    <form method="POST" action="" class="form__content">
+    <form method="POST" action="/accounts/github/login/" class="form__content">
         {% csrf_token %}
         <h2>Are you want to logIn with in GitHub?</h2>
         <input type="submit" value="Confirm" class="sign__btn"/>

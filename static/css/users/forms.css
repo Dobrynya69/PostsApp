@@ -7,7 +7,7 @@
     align-items: center;
     color: white;
 }
-.form__content input{
+.form__content input, .form__content select{
     margin-bottom: 5px;
     font-size: 20px;
     padding: 5px;
@@ -15,6 +15,7 @@
     border-radius: 5px;
     width: 250px;
     color: black;
+    border: 3px solid rgb(234, 227, 227);
 }
 .form__content input[type="file"]{
     background-color: white;

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/posts/posts_list.css' %}">
+    <link rel="stylesheet" href="{% static 'css/posts/post.css' %}">
+    <link rel="stylesheet" href="{% static 'css/users/forms.css' %}">
+{% endblock links %}
+
+{% block content %}
+    <h1>Posts list</h1>
+    <form method="POST" action="{% url 'posts_list' %}" class="form__content">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" value="Sort" class="sign__btn"/>
+    </form>
+    <div class="posts_list">
+        {% for post in list %}
+            {% include 'posts/post.html' with post=post %}
+        {% endfor %}
+    </div>
+{% endblock content %}

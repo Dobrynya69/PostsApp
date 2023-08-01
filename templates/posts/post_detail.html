@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/posts/posts_list.css' %}">
+    <link rel="stylesheet" href="{% static 'css/posts/post.css' %}">
+{% endblock links %}
+
+{% block content %}
+    {% include 'posts/post.html' with post=post %}
+{% endblock content %}
