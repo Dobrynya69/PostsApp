@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/users/forms.css' %}">
+{% endblock links %}
+
+{% block content %}
+    <form action="" method="POST" class="form__content" enctype="multipart/form-data"> 
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" value="Change" class="sign__btn"/>
+    </form>
+{% endblock content %}

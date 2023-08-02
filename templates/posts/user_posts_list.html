@@ -8,7 +8,7 @@
 {% endblock links %}
 
 {% block content %}
-    <h1>Posts list</h1>
+    <h1>Your Posts list</h1>
     <form method="POST" action="" class="form__content">
         {% csrf_token %}
         {{form}}
@@ -16,7 +16,7 @@
     </form>
     <div class="posts_list">
         {% for post in list %}
-            {% include 'posts/post.html' with post=post %}
+            {% include 'posts/post.html' with post=post private=True%}
         {% endfor %}
     </div>
 {% endblock content %}

@@ -6,7 +6,7 @@ class SortForm(forms.Form):
     theme = forms.ModelChoiceField(Theme.objects, label='', required=False)
 
 
-class PostCreateForm(forms.ModelForm):
+class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ['title', 'body', 'image', 'themes']

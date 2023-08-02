@@ -46,9 +46,10 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
 
-
     'users.apps.UsersConfig',
     'posts.apps.PostsConfig',
+
+    'django_cleanup.apps.CleanupConfig',
 
 ]
 

@@ -22,6 +22,7 @@ h1{
 }
 body{
     position: relative;
+    background-color: #2C2C2C;
 }
 a{
     text-decoration: none;
@@ -95,7 +96,7 @@ a{
 }
 .footer{
     height: 40px;
-    background-color: #292929;
+    background-color: #2C2C2C;
 }
 .header__buttons-block {
     font-size: 18px;

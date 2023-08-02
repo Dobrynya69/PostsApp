@@ -1,14 +1,27 @@
 {% load static %}
 
 <div class="post">
-    <h3><a href="{% url 'post_detail' post.pk %}">Title: {{post.title}}</a></h3>
-    <span>Message: {{post.body}}</span>
-    <img src="{{post.image.url}}" alt="Post Image"/>
-    <span>
-        Themes: 
-        {% for theme in post.themes.all %}
-            {{theme.name}} 
-        {% endfor %}
-    </span>
-    <span>* by {{post.author.first_name}} ({{post.author.username}})</span>
+    {% if private == True %}
+        <h3><a href="{% url 'post_detail' post.pk %}">Title: {{post.title}}</a></h3>
+        <span>Message: {{post.body}}</span>
+        <img src="{{post.image.url}}" alt="Post Image"/>
+        <span>
+            Themes: 
+            {% for theme in post.themes.all %}
+                {{theme.name}}
+            {% endfor %}
+        </span>
+        <h3><a href="{% url 'post_change' user_pk=user.pk post_pk=post.pk%}">Edit post</a></h3>
+    {% else %}
+        <h3><a href="{% url 'post_detail' post.pk %}">Title: {{post.title}}</a></h3>
+        <span>Message: {{post.body}}</span>
+        <img src="{{post.image.url}}" alt="Post Image"/>
+        <span>
+            Themes: 
+            {% for theme in post.themes.all %}
+                {{theme.name}} 
+            {% endfor %}
+        </span>
+        <span>* by {{post.author.first_name}} ({{post.author.username}})</span>
+    {% endif %}
 </div>

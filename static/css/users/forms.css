@@ -7,13 +7,27 @@
     align-items: center;
     color: white;
 }
-.form__content input, .form__content select{
+.form__content input, textarea{
+    margin-bottom: 5px;
+    font-size: 20px;
+    padding: 5px;
+    outline: none;
+    border-radius: 5px;
+    min-width: calc(250px - 14.8px);
+    width: calc(250px - 14.8px);
+    max-width: 400px;
+    max-height: 80px;
+    color: black;
+    border: 3px solid rgb(234, 227, 227);
+}
+.form__content select{
     margin-bottom: 5px;
     font-size: 20px;
     padding: 5px;
     outline: none;
     border-radius: 5px;
     width: 250px;
+    max-height: 80px;
     color: black;
     border: 3px solid rgb(234, 227, 227);
 }
@@ -28,7 +42,7 @@
     padding: 5px;
     border-style: none;
     border-radius: 5px;
-    min-width: 260px;
+    min-width: 250px;
     cursor: pointer;
 }
 .github_button{
