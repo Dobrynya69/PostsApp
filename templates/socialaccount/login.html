@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load socialaccount %}
 {% load static %}
 
 {% block title %}
@@ -11,9 +11,16 @@
 {% endblock links %}
 
 {% block content %}
-    <form method="POST" action="/accounts/github/login/" class="form__content">
-        {% csrf_token %}
-        <h2>Are you want to logIn with in GitHub?</h2>
-        <input type="submit" value="Confirm" class="sign__btn"/>
-    </form>
+
+<form method="POST" action="/accounts/github/login/" class="form__content">
+    {% csrf_token %}
+    <h2>Are you want to logIn with in GitHub?</h2>
+    <input type="submit" value="With GitHub" class="sign__btn"/>
+</form>
+<form method="POST" action="/accounts/google/login/?process=login" class="form__content">
+    {% csrf_token %}
+    <h2>Are you want to logIn with in Google?</h2>
+    <input type="submit" value="With Google" class="sign__btn"/>
+</form>
+
 {% endblock content %}

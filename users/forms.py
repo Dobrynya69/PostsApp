@@ -3,7 +3,7 @@ from django.contrib.auth import get_user_model
 from allauth.account.forms import LoginForm, SignupForm
 
 class CustomUserCreationForm(SignupForm):
-    image = forms.ImageField(required=False)
+    _image = forms.ImageField(required=False)
     first_name = forms.CharField(max_length=250, widget=forms.TextInput(attrs={'placeholder': 'First Name'}))
     last_name = forms.CharField(max_length=250, widget=forms.TextInput(attrs={'placeholder': 'Last Name'}))
 
@@ -17,7 +17,7 @@ class CustomUserCreationForm(SignupForm):
     def save(self, request):
         user = super(CustomUserCreationForm, self).save(request)
         if request.FILES:
-            user.image = request.FILES['image']
+            user._image = request.FILES['_image']
         user.first_name = request.POST.get('first_name', '')
         user.last_name = request.POST.get('last_name', '')
         user.save()
@@ -36,7 +36,7 @@ class CustomUserLoginForm(LoginForm):
 class CustomUserForm(forms.ModelForm):
     first_name = forms.CharField(max_length=250, widget=forms.TextInput(attrs={'placeholder': 'First Name'}))
     last_name = forms.CharField(max_length=250, widget=forms.TextInput(attrs={'placeholder': 'Last Name'}))
-    image = forms.ImageField(required=False)
+    _image = forms.ImageField(required=False)
 
 
     def __init__(self, *args, **kwargs):
@@ -47,4 +47,4 @@ class CustomUserForm(forms.ModelForm):
 
     class Meta:
         model = get_user_model()
-        fields = ['first_name', 'last_name', 'image']
+        fields = ['first_name', 'last_name', '_image']

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -19,6 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
+load_dotenv(BASE_DIR / '.env')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-vu*g*e36lqnnm$5%270(=9fj#^6&ljm3lyy)!2^qd7*lcps+x_'
@@ -45,6 +47,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.google',
 
     'users.apps.UsersConfig',
     'posts.apps.PostsConfig',
@@ -61,6 +64,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -159,7 +163,7 @@ ACCOUNT_LOGOUT_REDIRECT = 'home_page'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_FORMS = {'signup': 'users.forms.CustomUserCreationForm', 'login': 'users.forms.CustomUserLoginForm'}
-SITE_ID = 1
+SITE_ID = 2
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -169,3 +173,20 @@ EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
 AUTH_USER_MODEL = 'users.CustomUser'
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'APP': {
+            'client_id': str(os.getenv("GOOGLE_CLIENT_ID",default=None)),
+            'secret': str(os.getenv("GOOGLE_SECRET_KEY",default=None)),
+            'key': '',
+        }
+    },
+    'github': {
+        'APP': {
+            'client_id': str(os.getenv("GITHUB_CLIENT_ID",default=None)),
+            'secret': str(os.getenv("GITHUB_SECRET_KEY",default=None)),
+            'key': '',
+        }
+    }
+}
