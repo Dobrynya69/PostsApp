@@ -13,7 +13,6 @@ class PostsListPageView(View):
 
     def get(self, *args, **kwargs):
         data = self.model_name.objects.all()
-
         return render(
             template_name=self.template_name,
             request=self.request,

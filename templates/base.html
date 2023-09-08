@@ -23,9 +23,9 @@
                         <div class="stick">|</div>
                         <a class="create-post" href="{% url 'user_posts_list' pk=user.pk %}">My posts</a>
                         <div class="stick">|</div>
-                        {% if user.image %}
+                        {% if user.account_image %}
                             <a href="{% url 'user_profile' pk=user.pk %}">
-                                <img src="{{user.image.url}}" alt="user_logo" class="user_logo"/>
+                                <img src="{{user.account_image.url}}" alt="user_logo" class="user_logo"/>
                             </a>
                         {% else %}
                             <a href="{% url 'user_profile' pk=user.pk %}">
